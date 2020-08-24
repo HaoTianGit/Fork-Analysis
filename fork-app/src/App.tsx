@@ -13,7 +13,7 @@ function App() {
   return (
     <div className="App">
       <SearchBar SetUserInput = {(a: IUserInput) => SetUserInput(a)}/>
-      <TableDisplay></TableDisplay>
+      <TableDisplay SearchQuery = {UserInput.SearchQuery}></TableDisplay>
     </div>
   );
 }

@@ -43,7 +43,7 @@ function SearchBar(props: ISearchBarProps) {
             </Grid>
             <Grid item xs={6} sm={3}>
                 <Button variant="contained" color="primary" onClick={handleSubmit}>
-                    Submit
+                    Find
                 </Button>
             </Grid>
         </Grid>
