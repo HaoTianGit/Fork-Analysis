@@ -14,7 +14,7 @@ function SearchBar(props: ISearchBarProps) {
 
     const [HasFocus, setHasFocus] = useState<boolean>(false);
     const handleSubmit = () => {
-        console.log(SearchQuery);
+        
 
         if (SearchQuery?.length !== 0 && SearchQuery !== null && SearchQuery !== "") {
             let UserInput: IUserInput = {
