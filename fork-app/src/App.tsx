@@ -5,7 +5,8 @@ import TableDisplay from './Component/TableComponent/TableDisplay'
 
 function App() {
   const [UserInput, setUserInput] = useState<IUserInput>({
-    SearchQuery: ""
+    UserQuery:"",
+    RepoQuery:""
   });
   function SetUserInput(a: IUserInput){
     setUserInput(a)
@@ -13,7 +14,7 @@ function App() {
   return (
     <div className="App">
       <SearchBar SetUserInput = {(a: IUserInput) => SetUserInput(a)}/>
-      <TableDisplay SearchQuery = {UserInput.SearchQuery}></TableDisplay>
+      <TableDisplay user = {UserInput.UserQuery} repo = {UserInput.RepoQuery}></TableDisplay>
     </div>
   );
 }

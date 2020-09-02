@@ -1,4 +1,5 @@
 export interface IUserInput {
-    SearchQuery: (string |null );
+    UserQuery: (string |null );
+    RepoQuery: (String |null);
 
 }

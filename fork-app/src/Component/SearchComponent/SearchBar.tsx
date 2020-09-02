@@ -7,18 +7,28 @@ interface ISearchBarProps{
 }
 
 function SearchBar(props: ISearchBarProps) {
-    const [SearchQuery, setSearchQuery] = useState<string | null>("");
-    const handleSearchQueryChange = (s: string | null) =>{
-        setSearchQuery(s);          
+    //const [SearchQuery, setSearchQuery] = useState<string | null>("");
+    const [UserQuery, setUserQuery] = useState<string | null>("");
+    const [RepoQuery, setRepoQuery] = useState<string | null>("");
+    //const handleSearchQueryChange = (s: string | null) =>{
+    //    setSearchQuery(s);          
+    //}
+    const handleUserQueryChange = (s: string | null) =>{
+        setUserQuery(s);
+    }
+    const handleRepoQueryChange = (s: string | null) =>{
+        setRepoQuery(s);
     }
 
     const [HasFocus, setHasFocus] = useState<boolean>(false);
     const handleSubmit = () => {
         
-
-        if (SearchQuery?.length !== 0 && SearchQuery !== null && SearchQuery !== "") {
+        //console.log(SearchQuery);
+        if (UserQuery?.length !== 0 && UserQuery !== null && UserQuery !== ""&&RepoQuery?.length !== 0 && RepoQuery !== null && RepoQuery !== "") {
             let UserInput: IUserInput = {
-                SearchQuery: SearchQuery,
+                UserQuery:UserQuery,
+                RepoQuery:RepoQuery
+
              
             }
             props.SetUserInput(UserInput);
@@ -35,11 +45,23 @@ function SearchBar(props: ISearchBarProps) {
                     id="outlined-required"
                     label="Search"
                     variant="outlined"
-                    error={HasFocus && SearchQuery === ""}
+                    error={HasFocus && UserQuery === ""}
                     onClick={() => setHasFocus(true)}
-                    value={SearchQuery}
-                    onChange={e => handleSearchQueryChange(e.target.value)}
+                    value={UserQuery}
+                    onChange={e => handleUserQueryChange(e.target.value)}
                 />
+            </Grid>
+            <Grid item xs={6} sm={3}>
+                <TextField
+                        required
+                        id="outlined-required"
+                        label="Search"
+                        variant="outlined"
+                        error={HasFocus && RepoQuery === ""}
+                        onClick={() => setHasFocus(true)}
+                        value={RepoQuery}
+                        onChange={e => handleRepoQueryChange(e.target.value)}
+                    />
             </Grid>
             <Grid item xs={6} sm={3}>
                 <Button variant="contained" color="primary" onClick={handleSubmit}>
